@@ -63,6 +63,10 @@ app.get('/blogs/new',(req,res)=>{
 
 app.post('/blogs/new',(req,res)=>{
   const title = req.body.title
+  const user_name = req.body.user_name
+  const user_text = req.body.user_text
+  const post_date = req.body.post_date
+
   db.query('INSERT INTO posts (title) VALUES ($1)',[title])
     .then(()=>{
       res.send('created!')
